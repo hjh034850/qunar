@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header :city='city'></Header>
+    <Header></Header>
     <Swiper></Swiper>
     <Icons></Icons>
     <Recommend :list='recommendList'></Recommend>
@@ -29,21 +29,20 @@ export default {
   },
   data(){
     return{
-      city:'北京',
+     
       recommendList:[],
       weekendList:[]
     }
   },
   methods:{
     getInfo (){
-      axios.get('../../static/mock/index.json').then(this.getInfoSuccess)
+      axios.get('../../static/mock/index.json?city='+this.$store.state.city).then(this.getInfoSuccess)
     },
     getInfoSuccess(res){
       res = res.data;
       if(res.ret && res.data){
-        console.log(res.data);
+     
         const data = res.data;
-        this.city = '北京';
         this.recommendList = data.recommendList;
         this.weekendList = data.weekendList;
       }
@@ -51,6 +50,11 @@ export default {
   },
   mounted (){
     this.getInfo()
+  },
+  activated () {
+    if(this.$store.state.flag == true){
+      this.getInfo();
+    }
   }
 }
 </script>

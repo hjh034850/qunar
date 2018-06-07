@@ -64,7 +64,7 @@ import Bscroll from 'better-scroll'
         position:absolute;
         left:0;
         right:0;
-        top:1.58rem;
+        top:0.86rem;
         bottom:0;
     }
     .title{

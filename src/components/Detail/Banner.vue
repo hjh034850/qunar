@@ -3,10 +3,10 @@
         <div class="banner" @click = "changeShow">
             <img class="banner-img" src="http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_600x330_f922b488.jpg"/>
             <div class="banner-info">
-                <p class="banner-title">故宫(AAAAA景区)</p>
+                <p class="banner-title">故宫(AAAAA)景区</p>
                 <p class="banner-number">
                     <i class="iconfont img-icon">&#xe6a5;</i>
-                    10
+                    2
                 </p>
             </div>
         </div>
@@ -25,6 +25,9 @@ import Gallery from './../../common/Gallery'
             return {
                 showGallery:false
             }
+        },
+        props:{
+            infor:Object
         },
         components:{
             Gallery

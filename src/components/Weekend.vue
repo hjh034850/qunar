@@ -1,32 +1,34 @@
 <template>
     <div>
-        <div class="recommend-title">热销推荐</div>
+        <div class="recommend-title">周末去哪儿</div>
         <ul>
-            <router-link tag="li" class="item" v-for="item in list" :key="item.id" :to="'/detail/'+ item.id">
+            <li class="item" v-for="item in list">
                 <div class="item-img">
                 <img :src="item.imgUrl"/>
                 </div>
+
                 <div class="item-info">
                     <p class="item-title">{{item.title}}</p>
                     <p class="item-desc">{{item.desc}}</p>
-                    <button class="item-button">查看详情</button>
+                   
                 </div>
-            </router-link>
+            </li>
         </ul>
     </div>
 </template>
 
 <script>
     export default {
-        name:'Recommend',
+        name:'Weekend',
         props:{
             list:Array
         }
+       
     }
 </script>
 
 <style scoped>
-    .recommend-title{
+     .recommend-title{
         height:0.8rem;
         line-height:0.8rem;
         background:#eee;
@@ -37,16 +39,17 @@
     }
     .item-img{
         float:left;
+        width:100%;
     }
     .item img{
-        width: 1.7rem;
+        width: 100%;
         height: 1.7rem;
         padding: .1rem;
     }
     .item-info{
-        float:left;   
+        float:left;
+       
         padding:0.1rem;
-        width:4rem;
     }
     .item-title{
         height:0.54rem;
@@ -57,16 +60,6 @@
         line-height: .4rem;
         color: #ccc;
         font-size:0.26rem;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
     }
-    .item-button{
-        line-height:0.44rem;
-        margin-top:0.16rem;
-        background:#ff9300;
-        padding:0 0.2rem;
-        border-radius:0.06rem;
-        color:#fff; 
-    }
+    
 </style>
